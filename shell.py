@@ -25,7 +25,12 @@ def parser_runner(args: str):
         и будет работать просто игнорируя лишние аргументы.
     """
     basic = Basic()
-    a = args.split(' ')
+    b = args.split(' ')
+    a = []
+    for items in range(len(b)):
+        if not b[items] == '':
+            a.append(b[items])
+    print(a)
     if a[0] == 'ls' or a[0] == 'pwd' or a[0] == 'clear' or a[0] == 'exit':
         if len(a) > 1:
             print('{0}: there extra operand(s) {1}. They(It) will be ignored.'.
@@ -56,6 +61,7 @@ def parser_runner(args: str):
             else:
                 basic.mkdir(a[1])
     elif a[0] == 'cp' or a[0] == 'mv':
+        print(11)
         if len(a) < 3:
             print('{0}: the operand specifying the file is omitted'.format(colored(a[0], attrs=['bold'])))
         else:
