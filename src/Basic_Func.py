@@ -133,9 +133,32 @@ class Basic:
             os.mkdir(new_dir)
         except OSError as error:
             print(
-                'Can\'t create directory \"{0}\": File already exists!'.format(
+                'Can\'t create directory \"{0}\": File(directory) with this name already exists!'.format(
                     colored(new_dir, 'blue', attrs=['bold'])))
 
     @staticmethod
     def help():
-        pass
+        """
+            Описание всех команд с их синтаксисом.
+        """
+
+        def print_syn_desc(command: str, description: str, args: str):
+            print(colored(command + ' : ', 'red', attrs=['bold']))
+            print(colored('  syntax: ', 'green', attrs=['bold']),
+                  colored(command, attrs=['bold']) + ' ' + colored(args, 'yellow'))
+            print(colored('  description: ', 'green', attrs=['bold']), description)
+
+        print_syn_desc('ls', 'prints the contents of the current directory', '')
+        print_syn_desc('pwd', 'prints the absolute path to the current directory', '')
+        print_syn_desc('cd', 'changes current directory to a new given directory', '<path_to_new_directory>')
+        print_syn_desc('cp', 'copies the contents of the <source> file to the <destination> file.',
+                       '<source_file> <dest_file>')
+        print_syn_desc('mv', 'moves <source> file to another <destination> directory or '
+                             'to rename <source> file to <destination>',
+                       '<source_file> [<dest_directory> or <dest_file>]')
+        print_syn_desc('rm', 'removes the <source> that is given with an absolute path',
+                       '<source_file>')
+        print_syn_desc('rmdir', 'removes the <source> directory if it is empty',
+                       '<source_dir>')
+        print_syn_desc('mkdir', 'creates a <new> directory, if it doesn\'t exist.',
+                       '<new_dir_name>')
