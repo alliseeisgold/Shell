@@ -6,6 +6,11 @@ from termcolor import colored
 
 
 class Shell:
+    """
+        В этом классе находятся статические методы.
+        Главные это parser_runner и run.
+        В них находится реализация запуска и парсер командной строки.
+    """
 
     @staticmethod
     def print_extra_files(a: list, n: int):
