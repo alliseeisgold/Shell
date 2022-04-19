@@ -110,7 +110,7 @@ class Basic:
             Удаляет заданный каталог. Если каталог не существует, то выводит, что нет такого каталога.
             Если заданный аргумент не является каталогом, то выводит, что аргумент не является каталогом.
             Если заданный каталог не пуст, то выводит, что каталог не пуст.
-            Иначе с сообщением, что заданный каталог удалён, удалит заданный каталог.
+            Иначе с сообщением, что заданный каталог успешно удалён, удалит заданный каталог.
         """
         if not os.path.exists(dir_name):
             print('There is no such directory!')
@@ -162,3 +162,9 @@ class Basic:
                        '<source_dir>')
         print_syn_desc('mkdir', 'creates a <new> directory, if it doesn\'t exist.',
                        '<new_dir_name>')
+        print_syn_desc('run', 'runs an executable file <source> with given <args>',
+                       '<source_file> <args>')
+        print_syn_desc('clear', 'cleans the terminal.',
+                       '')
+        print_syn_desc('exit', 'exits from the terminal.',
+                       '')
