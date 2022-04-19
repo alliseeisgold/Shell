@@ -3,6 +3,11 @@ import socket
 
 
 class User:
+    """
+        Этот класс предназначен для взятия хоста и имени пользователя.
+        Например: name@hostname
+    """
+
     def __init__(self):
         self.username = os.getlogin()
         self.hostname = socket.gethostname()
