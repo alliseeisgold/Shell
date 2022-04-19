@@ -5,6 +5,11 @@ from termcolor import colored, cprint
 
 
 class Basic:
+    """
+        В этом классе находятся реализация функций команд.
+        Все методы static, так как каждая команда делает разные вещи
+        и мне было удобно сделать методы static.
+    """
 
     @staticmethod
     def ls():
