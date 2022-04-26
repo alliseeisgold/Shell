@@ -22,3 +22,4 @@ class Bonus:
                 print('This file isn\'t executable.')
         else:
             print('There isn\'t such file.')
+
