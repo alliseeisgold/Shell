@@ -1,4 +1,5 @@
 import os
+from turtle import width
 from src.Basic_Func import Basic
 from src.Bonus_Func import Bonus
 from src.User import User
@@ -86,7 +87,8 @@ class Shell:
                 basic.help()
             else:
                 os.system('clear')
-        elif a[0] == 'cd' or a[0] == 'rm' or a[0] == 'rmdir' or a[0] == 'mkdir':
+        elif a[0] == 'cd' or a[0] == 'rm' or a[0] == 'rmdir' \
+                or a[0] == 'mkdir':
             if len(a) < 2:
                 Shell.print_not_enough(a[0])
             else:
@@ -113,18 +115,25 @@ class Shell:
                     basic.mv(a[1], a[2])
         else:
             print('Incorrect command. '
-                  'Type {0} to see which commands (with their syntax and description) there are.'.
-                  format(colored('help', 'yellow', attrs=['bold'])))
+                  'Type {0} to see which commands '
+                  '(with their syntax and description) there are.'.
+                  format(colored('help',
+                                 'yellow', attrs=['bold'])))
 
     @staticmethod
     def welcome():
-        print(' ' + 50 * '=')
-        print('Ⅱ' + 48 * ' ' + '  Ⅱ')
-        print('Ⅱ' + 48 * ' ' + '  Ⅱ')
-        print(colored(14 * ' ' + 'Welcome To My OWN SHELL', 'green', attrs=['bold']))
-        print('Ⅱ' + 48 * ' ' + '  Ⅱ')
-        print('Ⅱ' + 48 * ' ' + '  Ⅱ')
-        print(' ' + 50 * '=')
+        len = 50
+        width = 48
+        spaces = 14
+        print(' ' + len * '=')
+        print('Ⅱ' + width * ' ' + '  Ⅱ')
+        print('Ⅱ' + width * ' ' + '  Ⅱ')
+        print(colored(spaces * ' ' +
+                      'Welcome To My OWN SHELL',
+                      'green', attrs=['bold']))
+        print('Ⅱ' + width * ' ' + '  Ⅱ')
+        print('Ⅱ' + width * ' ' + '  Ⅱ')
+        print(' ' + len * '=')
 
     @staticmethod
     def run():
@@ -135,9 +144,10 @@ class Shell:
         while True:
             print(colored(user, 'cyan', attrs=['bold']), end=' ')
             print(colored(
-                '~' + os.path.abspath(os.curdir)[len(users.getUserName()) + 6:] + '$',
-                'blue',
-                attrs=['bold']),
+                '~' +
+                os.path.abspath(os.curdir)[len(users.getUserName()) + 6:] +
+                '$',
+                'blue', attrs=['bold']),
                 end=' ')
             cmd = input()
             if Shell.parser_runner(cmd) == 1:
