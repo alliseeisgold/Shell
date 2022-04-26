@@ -29,9 +29,12 @@ $ run echo ‘hello’
 hello
 * **Тесты**
 
-Запуск кода
+Запуск
 =======
-### Сначала установите нужные библиотеки
+
+### Сначала клонируйте репозиторий
+    git clone https://github.com/alliseeisgold/review_1.git
+### Установите нужные библиотеки
     pip install -r requirements.txt
 
 ### Запуск
